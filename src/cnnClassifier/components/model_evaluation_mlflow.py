@@ -1,12 +1,21 @@
 import tensorflow as tf
 from pathlib import Path
 import mlflow
+import os
 import mlflow.keras
 from urllib.parse import urlparse
 from cnnClassifier.entity.config_entity import EvaluationConfig
 from cnnClassifier.utils.common import read_yaml, create_directories,save_json
 
 
+
+#MLFLOW_TRACKING_URI= mlflow_config['MLFLOW_TRACKING_URI']
+MLFLOW_TRACKING_USERNAME = mlflow_config['taltaf913']
+MLFLOW_TRACKING_PASSWORD = mlflow_config['7a90f16718ff915331874c904b2ef92074893aaf'] 
+
+os.environ['MLFLOW_TRACKING_USERNAME'] = MLFLOW_TRACKING_USERNAME
+os.environ['MLFLOW_TRACKING_PASSWORD'] = MLFLOW_TRACKING_PASSWORD
+#mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
 class Evaluation:
     def __init__(self, config: EvaluationConfig):
         self.config = config
